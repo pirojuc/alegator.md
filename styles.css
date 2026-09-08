@@ -1,0 +1,230 @@
+*    {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background: none;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/background/background.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    header {
+      background: #1183C6;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+	
+	
+	.mobile-header {
+      display: none;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .mobile-header img {
+      width: 50px;
+      height: auto;
+    }
+
+    .mobile-title {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    .desktop-header {
+      display: block;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 160px); /* scade header și footer */
+      flex-wrap: wrap;
+    }
+
+    .left {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .left img {
+      width: auto;
+      max-width: 90%;
+      max-height: 70vh; /* max 80% din înălțimea ferestrei */
+      height: auto;
+      transform: translateX(10%);
+      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 1));
+      object-fit: contain;
+}
+
+    .right {
+      flex: 1;
+      color: #003366;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* schimbat din center */
+      padding: 20px;
+      overflow-y: auto;
+	  margin-top: 20px;
+      max-height: calc(100vh - 160px); /* previne depa?irea ecranului */
+}
+
+	.button-link {
+	  display: flex;
+      align-items: center;
+      background-color: #dbeef7;
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      text-decoration: none;
+      color: #003366;
+      transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .button-link:hover {
+      background-color: #cbe2f2;
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.5); /* shadow-blue-500/50 */
+      transform: scale(1.03); /* efect de marire u?oara la hover */
+    }
+
+    .button-link img {
+      width: 74px;
+      height: 64px;
+      margin-right: 15px;
+    }
+
+    .link-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .link-title {
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    .social-footer {
+      background-color: #1183C6;
+      padding: 10px 0;
+      text-align: center;
+	  z-index: 9999;
+    }
+
+    .social-footer img {
+      width: 32px;
+      height: 32px;
+      margin: 0 6px;
+      vertical-align: middle;
+      transition: opacity 0.3s ease;
+	  box-shadow: 0 0 6px white;
+	  border-radius: 20%;
+    }
+
+    .social-footer img:hover {
+      opacity: 0.7;
+    }
+
+    footer {
+      background-color: #1183C6;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+      padding: 10px 0;
+	  z-index: 9999;
+    }
+
+    
+	@media (max-width: 1200px) {
+	.left img {
+      max-width: 450px;
+    }
+  }
+
+    @media (max-width: 992px) {
+    .left img {
+      max-width: 320px;
+    }
+  }
+	
+	
+	@media (max-width: 768px) {
+		body {
+			height: auto;
+			min-height: 100vh;
+			overflow-y: auto;
+			overflow-x: hidden;
+			display: flex;
+			flex-direction: column;
+		}
+		
+      .container {
+        flex-direction: column;
+        height: auto;
+      }
+
+      .left {
+        display: none;
+      }
+	  
+	  .right {
+        max-height: none;
+        overflow-y: visible;
+      }
+
+      .button-link {
+        flex-direction: row;
+		max-width: 90%;
+      }
+	  
+	  .desktop-header {
+        display: none;
+      }
+
+      .mobile-header {
+        display: flex;
+      }
+
+      header {
+        padding: 10px;
+      }
+	  	  
+   }
